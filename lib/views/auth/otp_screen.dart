@@ -3,7 +3,6 @@ import 'package:provider/provider.dart';
 import 'package:surefix/utils/compo/otp_tf.dart';
 import 'package:surefix/utils/paths/colors_paths.dart';
 import 'package:surefix/utils/paths/fonts_paths.dart';
-import 'package:surefix/views/address/your_location_screen.dart';
 import 'package:surefix/views/dashboard/dashboard_screen.dart';
 import '../../provider/auth/otp_provider.dart';
 import '../../utils/compo/custom_btn.dart';

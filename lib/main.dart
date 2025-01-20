@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:surefix/utils/paths/colors_paths.dart';
 import 'package:surefix/utils/paths/fonts_paths.dart';
 
 import 'provider/auth/otp_provider.dart';
 import 'provider/dashboard/dashboard_provider.dart';
+import 'provider/sliders/home_img_slider_provider.dart';
 import 'provider/splash/splash_provider.dart';
 import 'provider/splash/splash_provider2.dart';
 import 'utils/theme/text_theme.dart';
@@ -19,12 +21,19 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(
+        statusBarColor: AppColors.kBlackC,
+        statusBarIconBrightness: Brightness.light,
+      ),
+    );
     return MultiProvider(
       providers: [
         ChangeNotifierProvider(create: (_) => SplashProvider()),
         ChangeNotifierProvider(create: (_) => SplashProvider2()),
         ChangeNotifierProvider(create: (_) => OtpProvider()),
         ChangeNotifierProvider(create: (_) => DashboardProvider()),
+        ChangeNotifierProvider(create: (_) => HomeImgSliderProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

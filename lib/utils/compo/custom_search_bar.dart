@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import '../paths/colors_paths.dart';
-import '../paths/icons_paths.dart';
 
 class CustomSearchBar extends StatelessWidget {
   final String? hintText;
@@ -59,7 +58,7 @@ class CustomSearchBar extends StatelessWidget {
                   ),
               enabledBorder: OutlineInputBorder(
                 borderSide: BorderSide(
-                  color: borderColor ?? AppColors.kGreyED,
+                  color: borderColor ?? AppColors.kLightGreyC6,
                 ),
                 borderRadius: const BorderRadius.all(Radius.circular(8)),
               ),

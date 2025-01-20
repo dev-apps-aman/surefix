@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   provider: ^6.1.2
   pin_code_fields: ^8.0.1
+  carousel_slider: ^5.0.0
 
 dev_dependencies:
   flutter_test:
@@ -64,7 +65,7 @@ flutter:
   assets:
     - assets/
     - assets/images/
-    # - assets/images/home_page/
+    - assets/images/home/
     # - assets/images/home_page/category/
     # - assets/images/home_page/bestoffer/
     # - assets/images/home_page/slider/

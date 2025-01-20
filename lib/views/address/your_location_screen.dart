@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:surefix/utils/paths/fonts_paths.dart';
 
@@ -59,17 +58,10 @@ class YourLocationScreen extends StatelessWidget {
             const SizedBox(height: 30),
             CustomSearchBar(
               hintText: 'Search New Address',
-              suffixIcon: IconButton(
-                icon: Icon(
-                  Icons.search,
-                  color: AppColors.kGrey4B,
-                  size: 20,
-                ),
-                onPressed: () {
-                  if (kDebugMode) {
-                    print("Clear button tapped");
-                  }
-                },
+              suffixIcon: Icon(
+                Icons.search,
+                color: AppColors.kGrey4B,
+                size: 20,
               ),
             ),
             const SizedBox(height: 20),

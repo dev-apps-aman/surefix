@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:flutter/services.dart';
 import 'dart:io';
 import '../../provider/dashboard/dashboard_provider.dart';
+import '../../utils/compo/custom_app_bar2.dart';
 import '../../utils/paths/colors_paths.dart';
 
 class DashboardScreen extends StatefulWidget {
@@ -90,11 +91,13 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: Consumer<DashboardProvider>(
           builder: (ctx, prov, child) {
             return Scaffold(
+              resizeToAvoidBottomInset: false,
+              appBar: CustomAppBar2(),
               body: IndexedStack(
                 index: prov.selectIdx,
                 children: prov.pages,
               ),
-              bottomSheet: _buildBottomNavigationBar(context, prov),
+              bottomNavigationBar: _buildBottomNavigationBar(context, prov),
             );
           },
         ));
@@ -103,14 +106,30 @@ class _DashboardScreenState extends State<DashboardScreen> {
   Widget _buildBottomNavigationBar(
       BuildContext context, DashboardProvider prov) {
     final navItems = [
-      {'icon': Icons.home, 'label': 'Home'},
-      {'icon': Icons., 'label': 'Bookings'},
-      {'icon': Icons.local_offer_outlined, 'label': 'Offers'},
-      {'icon': Icons.account_circle, 'label': 'Account'},
+      {
+        'iconSelected': Icons.home_filled,
+        'iconUnselected': Icons.home_outlined,
+        'label': 'Home'
+      },
+      {
+        'iconSelected': Icons.receipt,
+        'iconUnselected': Icons.receipt_outlined,
+        'label': 'Bookings'
+      },
+      {
+        'iconSelected': Icons.local_offer,
+        'iconUnselected': Icons.local_offer_outlined,
+        'label': 'Offers'
+      },
+      {
+        'iconSelected': Icons.person,
+        'iconUnselected': Icons.person_outline,
+        'label': 'Account'
+      },
     ];
 
     return Container(
-      padding: EdgeInsets.only(bottom: 10),
+      padding: const EdgeInsets.only(bottom: 10),
       decoration: const BoxDecoration(
         color: AppColors.kGreyED,
       ),
@@ -121,7 +140,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
             int index = entry.key;
             Map<String, dynamic> item = entry.value;
             return _buildNavItem(
-              icon: item['icon'] as IconData,
+              iconSelected: item['iconSelected'] as IconData,
+              iconUnselected: item['iconUnselected'] as IconData,
               label: item['label'] as String,
               isSelected: prov.selectIdx == index,
               onTap: () => prov.onItemTapped(index),
@@ -133,7 +153,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
   }
 
   Widget _buildNavItem({
-    required IconData icon,
+    required IconData iconSelected,
+    required IconData iconUnselected,
     required String label,
     required bool isSelected,
     required VoidCallback onTap,
@@ -146,22 +167,17 @@ class _DashboardScreenState extends State<DashboardScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            AnimatedScale(
-              duration: const Duration(milliseconds: 200),
-              scale: isSelected ? 1.1 : 1.0,
-              child: Icon(
-                icon,
-                color: isSelected ? AppColors.kBlackC : AppColors.kLightGrey,
-              ),
+            Icon(
+              isSelected ? iconSelected : iconUnselected,
+              color: isSelected ? AppColors.kBlackC : AppColors.kGrey4B,
             ),
             const SizedBox(height: 4),
             Text(
               label,
               style: TextStyle(
-                fontSize: 10,
-                // fontFamily: AppFonts.gilroy_700,
-                color: isSelected ? AppColors.kBlackC : AppColors.kLightGrey,
-                fontWeight: isSelected ? FontWeight.w700 : FontWeight.w500,
+                fontSize: 12,
+                color: isSelected ? AppColors.kBlackC : AppColors.kGrey4B,
+                fontWeight: isSelected ? FontWeight.w400 : FontWeight.w400,
               ),
             ),
           ],
