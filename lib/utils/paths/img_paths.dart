@@ -12,6 +12,10 @@ class AppImages {
 
   static const String homeServiceImg = 'assets/images/home/service_img.png';
   static const String homeSliderImg = 'assets/images/home/home_slider_img.png';
+  static const String homeServiceManImg =
+      'assets/images/home/service_man_img.png';
+  static const String homeServiceMan2Img =
+      'assets/images/home/service_man_img2.png';
   static const String homeMostTrandBG =
       'assets/images/home/home_most_trand_bg.png';
 }

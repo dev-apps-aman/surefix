@@ -78,18 +78,16 @@ class CustomImageSlider extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: List.generate(images.length, (index) {
-            return Container(
-              child: AnimatedContainer(
-                duration: Duration(milliseconds: 200),
-                margin: const EdgeInsets.symmetric(horizontal: 5),
-                width: sliderProvider.currentPage == index ? 12.0 : 8.0,
-                height: 8.0,
-                decoration: BoxDecoration(
-                  color: sliderProvider.currentPage == index
-                      ? AppColors.kBlackC
-                      : Colors.grey,
-                  borderRadius: BorderRadius.circular(4),
-                ),
+            return AnimatedContainer(
+              duration: Duration(milliseconds: 200),
+              margin: const EdgeInsets.symmetric(horizontal: 5),
+              width: sliderProvider.currentPage == index ? 12.0 : 8.0,
+              height: 8.0,
+              decoration: BoxDecoration(
+                color: sliderProvider.currentPage == index
+                    ? AppColors.kBlackC
+                    : Colors.grey,
+                borderRadius: BorderRadius.circular(4),
               ),
             );
           }),

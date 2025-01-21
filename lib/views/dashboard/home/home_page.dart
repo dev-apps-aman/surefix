@@ -2,24 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:surefix/utils/compo/custom_btn.dart';
 import 'package:surefix/utils/paths/fonts_paths.dart';
 import 'package:surefix/utils/paths/img_paths.dart';
-import 'package:surefix/views/dashboard/home/services_list_screen.dart';
 import '../../../utils/compo/custom_image_slider.dart';
 import '../../../utils/compo/custom_search_bar.dart';
 import '../../../utils/paths/colors_paths.dart';
+import 'compo/cat_gridview.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<String> imageList = [
-      AppImages.homeCleanImg,
-      AppImages.homeAcImg,
-      AppImages.homeSolarImg,
-      AppImages.homePaintmg,
-      AppImages.homeElecImg,
-      AppImages.homePlumberImg,
-    ];
     return SingleChildScrollView(
       child: Column(
         children: [
@@ -70,45 +62,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                GridView.builder(
-                  shrinkWrap: true,
-                  physics: NeverScrollableScrollPhysics(),
-                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 3,
-                    crossAxisSpacing: 8.0,
-                    mainAxisSpacing: 8.0,
-                    childAspectRatio: 1.0,
-                  ),
-                  itemCount: imageList.length,
-                  itemBuilder: (context, index) {
-                    return InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => ServicesListScreen(),
-                          ),
-                        );
-                      },
-                      child: Container(
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(10.0),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.black.withAlpha(40),
-                              blurRadius: 6,
-                              offset: Offset(0, 1),
-                            ),
-                          ],
-                          image: DecorationImage(
-                            image: AssetImage(imageList[index]),
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                    );
-                  },
-                ),
+                CatGridViewBuilder(),
                 SizedBox(height: 20),
                 InkWell(
                   onTap: () {},

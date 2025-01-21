@@ -3,8 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:surefix/utils/paths/colors_paths.dart';
 import 'package:surefix/utils/paths/fonts_paths.dart';
-
 import 'provider/auth/otp_provider.dart';
+import 'provider/cart/cart_provider.dart';
 import 'provider/dashboard/dashboard_provider.dart';
 import 'provider/sliders/home_img_slider_provider.dart';
 import 'provider/splash/splash_provider.dart';
@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => OtpProvider()),
         ChangeNotifierProvider(create: (_) => DashboardProvider()),
         ChangeNotifierProvider(create: (_) => HomeImgSliderProvider()),
+        ChangeNotifierProvider(create: (_) => CartProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',
