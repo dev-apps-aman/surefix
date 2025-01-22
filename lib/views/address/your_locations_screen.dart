@@ -37,13 +37,9 @@ class YourLocationScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: CustomAppBar(
-        backgroundColor: Colors.white,
-        shadowColor: Colors.transparent,
-        centerTitle: true,
         title: Text(
           'Your Location',
           style: TextStyle(
-            color: AppColors.kBlackC,
             fontSize: 16,
             fontWeight: FontWeight.w600,
             fontFamily: AppFonts.inter600,
@@ -102,6 +98,7 @@ class YourLocationScreen extends StatelessWidget {
             Expanded(
               child: ListView.separated(
                 shrinkWrap: true,
+                physics: NeverScrollableScrollPhysics(),
                 itemCount: addressList.length,
                 separatorBuilder: (context, index) =>
                     const SizedBox(height: 14),

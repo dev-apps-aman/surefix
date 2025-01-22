@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
+import 'package:surefix/provider/address/add_edit_address_provider.dart';
 import 'package:surefix/utils/paths/colors_paths.dart';
 import 'package:surefix/utils/paths/fonts_paths.dart';
+import 'provider/address/address_provider.dart';
 import 'provider/auth/otp_provider.dart';
 import 'provider/cart/cart_provider.dart';
 import 'provider/dashboard/dashboard_provider.dart';
@@ -35,6 +37,8 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => DashboardProvider()),
         ChangeNotifierProvider(create: (_) => HomeImgSliderProvider()),
         ChangeNotifierProvider(create: (_) => CartProvider()),
+        ChangeNotifierProvider(create: (_) => AddressProvider()),
+        ChangeNotifierProvider(create: (_) => AddEditAddressProvider()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

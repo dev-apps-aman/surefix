@@ -52,7 +52,7 @@ class CustomSearchBar extends StatelessWidget {
               fillColor: fillColor ?? Colors.transparent,
               hintStyle: hintStyle ??
                   TextStyle(
-                    color: AppColors.kGrey,
+                    color: AppColors.kLightGreyC6,
                     fontSize: 14,
                     fontWeight: FontWeight.w400,
                   ),

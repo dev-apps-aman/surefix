@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../views/address/your_location_screen.dart';
+import '../../views/address/your_locations_screen.dart';
 import '../helpers/custom_text_styles.dart';
 import '../paths/colors_paths.dart';
 import '../paths/icons_paths.dart';
